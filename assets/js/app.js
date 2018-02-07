@@ -1,22 +1,47 @@
+
+
+
+
   // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          mapTypeControl: false,
-          center: {lat: -35, lng: -71},
-          zoom: 5
+          center: {lat: -33.4188304, lng: -70.6423391},
+          zoom: 18
+
         });
 
         new AutocompleteDirectionsHandler(map);
-        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-  var beachMarker = new google.maps.Marker({
+
+    var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+      var beachMarker = new google.maps.Marker({
     position: {lat: -35.4316852, lng: -71.542969},
     map: map,
     icon: image
   });
       }
+
+      function buscar(){
+  if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+     infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
 
        /**
         * @constructor
