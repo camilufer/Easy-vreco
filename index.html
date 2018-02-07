@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Place searches</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/style.css">
-   
-  
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Place searches</title>
+     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <input type="text">
-    <div id="map"></div>
+    <div class="container">
+      <div class="row contenedor-inputs">
+        <div class="col-md-4">
+          <input id="origin-input" class="controls" type="text" placeholder=" Ingresa origen">
+        </div>
+        <div class="col-md-4">
+          <input id="destination-input" class="controls" type="text" placeholder=" Ingresa destino">
+        </div>
+        <div class="col-md-4">
+          <div id="mode-selector" class="controls">
+            <input type="radio" name="type" id="changemode-walking" checked="checked">
+            <label for="changemode-walking">Walking</label>
+            <input type="radio" name="type" id="changemode-transit">
+            <label for="changemode-transit">Transit</label>
+            <input type="radio" name="type" id="changemode-driving">
+            <label for="changemode-driving">Driving</label>
+          </div>
+        </div>
+      </div>
+      <div id="map"></div>
 
-    <script type="text/javascript" src="assets/js/app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7WCw43BQoeUWlrhu27v9oDrpmr6SMBWQ&libraries=places&callback=initMap" async defer></script>
+
+
+    </div> <!-- Fin container -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+ 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7WCw43BQoeUWlrhu27v9oDrpmr6SMBWQ&libraries=places&callback=initMap" async defer></script>
   </body>
 </html>
+
+
+
+   
+   
+ 
