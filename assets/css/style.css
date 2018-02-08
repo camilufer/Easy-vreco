@@ -1,14 +1,71 @@
-  #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+/* COLOR CODES
+* #E7E2D8
+* #CAB6A8
+* #4A625E
+* #85AAA2
+* #BAD1CC
+* #E5E9EA
+*/
 
-  .container{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+  	margin-top: 2em;
+    height: 100%;
+    width: 100%;
+    border: 5px solid #CAB6A8;
+    border-radius: 20px;
+}
+     
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #85AAA2; 
+}
+
+.container{
   	height: 100%;
-  }     
+}     
+
+.contenedormapa{
+ 	width:100%;
+ }
+
+
+
+.controls{
+  margin-top: 2em;
+  color: #4A625E;
+}
+
+input{
+  background-color: #E7E2D8;
+  border-color: transparent;
+  color: black;
+
+}
+
+.btn{
+  width: 6em;
+  height: 6em;
+  margin-top: 2em;
+  background-color: #CAB6A8;
+  border-radius: 50%;
+  color: #4A625E;
+  border-color: #E5E9EA;
+}
+
+.btn:hover{
+  color: #FFF;
+}
+
+
+.mapa{
+  border: red;
+}
+
 
