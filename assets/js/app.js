@@ -8,7 +8,7 @@
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -33.4188304, lng: -70.6423391},
-    zoom: 18
+    zoom: 6
     });
 
     function buscar(){
