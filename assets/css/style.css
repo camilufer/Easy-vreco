@@ -19,6 +19,15 @@
     border: 5px solid #CAB6A8;
     border-radius: 20px;
 }
+
+.selection{
+  background-color: #E7E2D8;
+}
+
+label{
+  padding: 1em;
+  padding-top: 2em;
+}
      
 html, body {
     height: 100%;

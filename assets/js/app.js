@@ -1,7 +1,8 @@
   // This example requires the Places library. Include the libraries=places
   // parameter when you first load the API. For example:
   // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-  //document.getElementById("encuentrame").addEventListener("click", initMap);
+  //document.getElementById("encuentrame").addEventListener("click", buscar);
+  // var latitud, longitud;
  
 
   function initMap() {
@@ -9,6 +10,41 @@
     center: {lat: -33.4188304, lng: -70.6423391},
     zoom: 18
     });
+
+    function buscar(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(funcionExito, funcionError);
+    }
+  }
+  /*
+  * Evento para el botón "encuentrame", busca la posición actual utilizando la latitud y longitud
+  */
+  document.getElementById("encuentrame").addEventListener("click", buscar);
+  var latitud, longitud;
+
+  /*
+  * Con funcionExito obtendremos nuestra latitud o longitud y además crearemos un marcador de nuestra ubicación.
+  */
+  var funcionExito = function(position){
+    latitud = position.coords.latitude;
+    longitud = position.coords.longitude;
+
+    var miUbicacion = new google.maps.Marker({
+      position: {lat:latitud, lng:longitud},
+      animation: google.maps.Animation.DROP,
+      map: map
+    });
+    // El zoom muestra el tamaño del mapa
+    map.setZoom(17);
+    map.setCenter({lat:latitud, lng:longitud});
+  }
+  /*
+  * En caso de que tengamos problemas de conexión, o simplemente no se encuentre nuestra ubicación, 
+  * Se ejecuta nuestra función de error
+  */
+  var funcionError = function(error){
+    alert("tenemos un problema con encontrar tu ubicación");
+  }
 
     new AutocompleteDirectionsHandler(map);
 
@@ -21,25 +57,7 @@
   }
    
   
-  function buscar(){
-    if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-    } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-    }
-  }
+  
 
 /*
 * @constructor
